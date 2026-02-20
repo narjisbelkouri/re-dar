@@ -125,3 +125,36 @@ form#contactForm {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.03);
 }
+/* ستايل أيقونة إنستغرام */
+.social-links {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.social-links p {
+    font-weight: bold;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.insta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.insta-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(188, 24, 136, 0.3);
+}
+
+.insta-link i {
+    font-size: 1.5rem;
+}
