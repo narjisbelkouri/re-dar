@@ -63,13 +63,14 @@
 
     <section id="contact" class="contact">
         <h2 data-key="contact-title">تواصل معنا</h2>
-        <form id="contactForm">
-            <input type="text" id="name" placeholder="الاسم الكامل" required>
-            <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-            <textarea id="message" rows="4" placeholder="رسالتك..." required></textarea>
-            <button type="submit" id="submit-btn">إرسال الرسالة</button>
-            <p class="response-time"><i class="fas fa-clock"></i> <span data-key="timer">نرد خلال 24 ساعة</span></p>
-        </form>
+       <form action="https://formspree.io/f/redarmarocdesign@gmail.com" method="POST" id="contactForm">
+    <input type="text" name="name" id="name" placeholder="الاسم الكامل" required>
+    <input type="email" name="_replyto" id="email" placeholder="بريدك الإلكتروني" required>
+    <textarea name="message" id="message" rows="4" placeholder="رسالتك..." required></textarea>
+    <input type="hidden" name="_next" value="https://your-website-url.com"> 
+    <button type="submit" id="submit-btn">إرسال الرسالة</button>
+    <p class="response-time"><i class="fas fa-clock"></i> <span data-key="timer">نرد خلال 24 ساعة</span></p>
+</form>
     </section>
 
     <footer>
