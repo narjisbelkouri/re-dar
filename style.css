@@ -96,3 +96,25 @@ input, textarea { padding: 15px; border-radius: 12px; border: 2px solid #e0e0e0;
     .btn { font-size: 1rem; padding: 12px 25px; }
     .about { padding: 40px 5%; }
 }
+/* --- تعديل زر إرسال الرسالة --- */
+button[type="submit"] {
+    background: var(--vibrant-orange); /* اللون الوردي/البرتقالي الحيوي */
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 50px; /* باش يجي دائري بحال الزر اللي فوق */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 15px rgba(239, 71, 111, 0.2);
+    transition: all 0.3s ease;
+    width: fit-content; /* باش ما ياخدش عرض الشاشة كاملة */
+    margin: 10px auto; /* باش يجي فالوسط */
+    display: block;
+}
+
+button[type="submit"]:hover {
+    transform: scale(1.05);
+    background: var(--vibrant-yellow);
+    color: var(--text-dark);
+}
