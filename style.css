@@ -1,3 +1,4 @@
+/* --- Root Variables & Base Setup --- */
 :root {
     --primary: #4A7C59; /* خضر منعش */
     --vibrant-yellow: #FFD166; /* أصفر حيوي */
@@ -9,118 +10,118 @@
 * { box-sizing: border-box; transition: all 0.3s ease; }
 
 body {
-    font-family: 'Tajawal', 'Montserrat', sans-serif;
+    font-family: 'Tajawal', sans-serif;
     margin: 0; background-color: var(--bg-light); color: var(--text-dark);
     overflow-x: hidden;
+    direction: rtl; /* اتجاه لغة الموقع */
 }
 
-/* Cursor Tracker */
+/* --- Cursor Tracker --- */
 .cursor-dot {
     width: 20px; height: 20px; background: var(--vibrant-orange);
     border-radius: 50%; position: fixed; pointer-events: none;
     z-index: 9999; opacity: 0.6; mix-blend-mode: multiply;
 }
 
+/* --- Header & Discount Bar --- */
 .discount-bar {
     background: linear-gradient(90deg, var(--vibrant-orange), var(--vibrant-yellow));
     color: white; text-align: center; padding: 12px; font-weight: bold;
+    font-size: 0.9rem;
 }
 
 header {
-    background: white; padding: 15px 5%; display: flex;
+    background: white; padding: 15px 10%; display: flex;
     justify-content: space-between; align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); sticky; top: 0; z-index: 100;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
 }
 
-.logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); }
+.logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); text-decoration: none; }
 .logo span { color: var(--vibrant-orange); }
 
-nav ul { display: flex; list-style: none; gap: 20px; }
+nav ul { display: flex; list-style: none; gap: 25px; margin: 0; padding: 0; }
 nav ul li a { text-decoration: none; color: var(--text-dark); font-weight: 600; }
 
 .lang-btn {
     background: var(--text-dark); color: white; border: none;
-    padding: 8px 15px; border-radius: 20px; cursor: pointer;
+    padding: 8px 18px; border-radius: 20px; cursor: pointer; font-weight: bold;
 }
 
+/* --- Hero Section --- */
 .hero {
-    height: 90vh; background: linear-gradient(45deg, rgba(74, 124, 89, 0.8), rgba(255, 209, 102, 0.4)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1350&q=80');
+    height: 85vh; 
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1350&q=80');
     background-size: cover; background-position: center;
     display: flex; align-items: center; justify-content: center; color: white; text-align: center;
 }
 
-.hero h1 { font-size: 3.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+.hero-content { max-width: 800px; padding: 20px; }
+.hero h1 { font-size: 3.5rem; margin-bottom: 20px; line-height: 1.2; }
+.hero p { font-size: 1.3rem; margin-bottom: 30px; }
 
 .coverage-badge {
-    background: rgba(255,255,255,0.2); padding: 10px 20px;
-    border-radius: 30px; display: inline-block; margin-bottom: 20px;
+    background: rgba(255,255,255,0.25); padding: 10px 20px;
+    border-radius: 30px; display: inline-block; margin-bottom: 30px;
+    backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.3);
 }
 
 .btn {
     background: var(--vibrant-orange); color: white; padding: 15px 40px;
     border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem;
     box-shadow: 0 10px 20px rgba(239, 71, 111, 0.3);
+    display: inline-block;
+    white-space: nowrap; /* كيمنع تقسيم الزر */
 }
 
-.btn:hover { transform: scale(1.1); background: var(--vibrant-yellow); color: var(--text-dark); }
+.btn:hover { transform: translateY(-5px); background: var(--vibrant-yellow); color: var(--text-dark); }
+
+/* --- Services & Floating Animation --- */
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
 
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 80px 10%; }
 .card {
     background: white; padding: 40px; border-radius: 25px; text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-top: 8px solid var(--vibrant-yellow);
+    animation: floating 4s ease-in-out infinite;
 }
+.card:nth-child(2) { animation-delay: 0.5s; }
+.card:nth-child(3) { animation-delay: 1s; }
+.card:hover { animation-play-state: paused; transform: scale(1.05); cursor: pointer; }
 .card i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
 
+/* --- Contact Section --- */
 .contact { background: #f0f7f2; padding: 80px 10%; border-radius: 50px 50px 0 0; }
 form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-input, textarea { padding: 15px; border-radius: 12px; border: 2px solid #e0e0e0; font-family: inherit; }
-input:focus { border-color: var(--primary); outline: none; }
-
+input, textarea { padding: 15px; border-radius: 12px; border: 2px solid #e0e0e0; font-family: inherit; font-size: 1rem; }
 button[type="submit"] {
     background: var(--primary); color: white; border: none; padding: 18px;
     border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 1.1rem;
 }
 
-/* Responsiveness (Phone) */
+/* --- Responsive for Mobile (The Fix) --- */
 @media (max-width: 768px) {
-    header { flex-direction: column; gap: 15px; }
-    nav ul { gap: 10px; padding: 0; font-size: 0.9rem; }
-    .hero h1 { font-size: 2.2rem; }
-    .hero { height: 70vh; }
-}
-/* Animation Definition */
-@keyframes floating {
-    0% {
-        transform: translateY(0px);
+    header { padding: 15px 5%; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    nav ul { width: 100%; justify-content: center; gap: 15px; font-size: 0.85rem; order: 3; }
+    
+    .hero { height: auto; padding: 120px 5% 80px 5%; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    
+    .coverage-badge { font-size: 0.8rem; width: 95%; }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 1rem;
+        min-width: 200px; /* كيحافظ على عرض الزر */
     }
-    50% {
-        transform: translateY(-15px); /* كتطلع الفوق بـ 15 بيكسل */
-    }
-    100% {
-        transform: translateY(0px);
-    }
+
+    .services { padding: 40px 5%; }
 }
 
-/* Applying the animation to the cards */
-.services .card {
-    animation: floating 4s ease-in-out infinite;
-    /* زدنا هاد الخاصية باش يبان الظل كيتغير شوية مع الحركة */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* باش ما يتحركوش كاملين دقة وحدة (كيعطي منظر طبيعي كثر) */
-.services .card:nth-child(2) {
-    animation-delay: 0.5s;
-}
-
-.services .card:nth-child(3) {
-    animation-delay: 1s;
-}
-
-/* ميزة إضافية: فاش يحط الكليان الماوس فوق الكارط، الحركة كتحبس وكيكبر الحجم شوية */
-.services .card:hover {
-    animation-play-state: paused;
-    transform: scale(1.05);
-    border-top-color: var(--vibrant-orange);
-    cursor: pointer;
+@media (max-width: 480px) {
+    .hero h1 { font-size: 1.6rem; }
 }
