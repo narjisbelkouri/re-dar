@@ -3,74 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Re-Dar | أناقة الذوق بذكاء التكلفة</title>
+    <title>Re-Dar | أناقة الذوق</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <div class="cursor-dot"></div>
 
-    <div class="discount-bar">خصم خاص 10% على أول تعامل لك معنا!</div>
+    <div class="discount-bar" id="discount-bar">خصم خاص 10% على أول تعامل لك معنا!</div>
 
     <header>
         <div class="logo">Re-<span>Dar</span> <i class="fas fa-home"></i></div>
         <nav>
-            <ul>
-                <li><a href="#home">الرئيسية</a></li>
-                <li><a href="#about">من نحن</a></li>
-                <li><a href="#services">خدماتنا</a></li>
-                <li><a href="#contact">اتصل بنا</a></li>
+            <ul id="nav-links">
+                <li><a href="#home" data-key="home">الرئيسية</a></li>
+                <li><a href="#about" data-key="about">من نحن</a></li>
+                <li><a href="#services" data-key="services">خدماتنا</a></li>
+                <li><a href="#contact" data-key="contact">اتصل بنا</a></li>
             </ul>
         </nav>
+        <button id="lang-switch" class="lang-btn">Français</button>
     </header>
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>أناقةُ الذوق.. بذكاء التكلفة</h1>
-            <p>نحول منزلك البسيط إلى فضاء أحلامك بأقل تكلفة ممكنة وبلمسة احترافية.</p>
-            <a href="#contact" class="btn">ابدأ رحلتك معنا</a>
+            <h1 id="hero-title">أناقةُ الذوق.. بذكاء التكلفة</h1>
+            <p id="hero-desc">نحول منزلك البسيط إلى فضاء أحلامك بأقل تكلفة ممكنة وبلمسة احترافية.</p>
+            <div class="coverage-badge"><i class="fas fa-map-marker-alt"></i> <span data-key="coverage">نصل إليكم أينما كنتم في المغرب</span></div>
+            <a href="#contact" class="btn" data-key="start">ابدأ رحلتك معنا</a>
         </div>
     </section>
 
     <section id="about" class="about">
-        <h2>من نحن؟</h2>
-        <p>في <strong>Re-Dar</strong>، نؤمن أن الراحة في المنزل ليست رفاهية للأغنياء فقط، بل حق للجميع. نحن فريق من المنسقين المتمكنين، هدفنا مساعدة ذوي الدخل المحدود لإعادة إحياء بيوتهم. نستخدم "الذكاء في التصميم" (Smart Design) لخلق مساحات تعطي الأمل والراحة النفسية.</p>
+        <h2 data-key="about-title">من نحن؟</h2>
+        <div class="about-grid">
+            <p id="about-text">
+                في <strong>Re-Dar</strong>، نحن فريق من المنسقين المتمكنين. هدفنا هو تمكين الجميع من العيش في منزل مريح ومنظم مهما كانت الميزانية. نحن نرافقكم "بالحرف" في كل مراحل الديكور، ونحترم خصوصياتكم الصحية والمكانية (البيوت الصغيرة، الحساسية، ضيق التنفس).
+            </p>
+        </div>
     </section>
 
     <section id="services" class="services">
         <div class="card">
-            <i class="fas fa-magic"></i>
-            <h3>تنسيق كامل</h3>
-            <p>نواكبك في كل خطوة، من اختيار الألوان إلى وضع اللمسة الأخيرة.</p>
+            <i class="fas fa-palette"></i>
+            <h3 data-key="s1-t">ذوقك أولاً</h3>
+            <p data-key="s1-d">نتبع ذوقك الشخصي بدقة، وإذا كنت تائهاً، نقترح عليك الأنسب.</p>
         </div>
         <div class="card">
-            <i class="fas fa-leaf"></i>
-            <h3>صحة وسلامة</h3>
-            <p>نراعي الظروف الصحية (مثل الحساسية وضيق التنفس) باختيار مواد صديقة للبيئة.</p>
+            <i class="fas fa-hand-holding-heart"></i>
+            <h3 data-key="s2-t">صديق للصحة</h3>
+            <p data-key="s2-d">نستخدم مواد آمنة لمن يعانون من الربو أو الحساسية.</p>
         </div>
         <div class="card">
-            <i class="fas fa-expand-arrows-alt"></i>
-            <h3>استغلال المساحات</h3>
-            <p>خبيرون في تحويل البيوت الصغيرة إلى فضاءات تشع بالاتساع والنور.</p>
+            <i class="fas fa-couch"></i>
+            <h3 data-key="s3-t">كل الغرف</h3>
+            <p data-key="s3-d">من الصالون إلى المطبخ، نصمم كل ركن في منزلك.</p>
         </div>
     </section>
 
     <section id="contact" class="contact">
-        <h2>تواصل معنا</h2>
+        <h2 data-key="contact-title">تواصل معنا</h2>
         <form id="contactForm">
             <input type="text" id="name" placeholder="الاسم الكامل" required>
             <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-            <textarea id="message" rows="5" placeholder="كيف يمكننا مساعدتك؟" required></textarea>
-            <button type="submit">إرسال الرسالة</button>
-            <p class="note">نرد على جميع استفساراتكم في غضون 24 ساعة.</p>
+            <textarea id="message" rows="4" placeholder="رسالتك..." required></textarea>
+            <button type="submit" id="submit-btn">إرسال الرسالة</button>
+            <p class="response-time"><i class="fas fa-clock"></i> <span data-key="timer">نرد خلال 24 ساعة</span></p>
         </form>
-        <div class="social">
-            <a href="https://instagram.com/re_dar_account" target="_blank"><i class="fab fa-instagram"></i> تابعنا على إنستغرام</a>
+        <div class="social-links">
+            <a href="https://instagram.com/re_dar_account" target="_blank"><i class="fab fa-instagram"></i> Re-Dar Instagram</a>
         </div>
     </section>
 
     <footer>
-        <p>جميع الحقوق محفوظة &copy; 2024 Re-Dar</p>
+        <p>&copy; 2026 Re-Dar - <span data-key="footer">بكل حب من أجل بيوتكم</span></p>
     </footer>
 
     <script src="script.js"></script>
