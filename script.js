@@ -57,15 +57,34 @@ function updateContent() {
 }
 // --- هاد الكود حطو في آخر سطر في ملف script.js ---
 
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    // هنا كنخليو الفورم تمشي لـ Formspree اللي غتصيفطها للـ Gmail
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', async function(e) {
+    e.preventDefault(); // هادي كتمنع الصفحة تبدل
+    
     const submitBtn = document.getElementById('submit-btn');
+    const formData = new FormData(this);
     
-    // هاد السطر كيبدل النص اللي وسط الزر باش الكليان يعرف أن الميساج كيتصيفط
     submitBtn.innerText = currentLang === 'ar' ? 'جاري الإرسال...' : 'Envoi en cours...';
-    
-    // هاد السطر كينقص من وضوح الزر شوية باش يبان أنه "خادم"
-    submitBtn.style.opacity = '0.7';
-    
-    // ملاحظة: مورا أول إرسال، Formspree غتصيفط ليك Gmail باش تأكد (Activate) الحساب
+    submitBtn.disabled = true;
+
+    // صيفط الميساج بلا ما تخرج من الصفحة
+    const response = await fetch(this.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+        // فاش كيدوز الميساج بنجاح
+        alert(currentLang === 'ar' ? 'شكراً لك! تم إرسال رسالتك بنجاح.' : 'Merci ! Votre message a été envoyé.');
+        contactForm.reset(); // مسح المعلومات من الفورم
+        submitBtn.innerText = currentLang === 'ar' ? 'إرسال الرسالة' : 'Envoyer';
+        submitBtn.disabled = false;
+        submitBtn.style.opacity = '1';
+    } else {
+        // إلا وقع مشكل
+        alert('Oops! كاين شي مشكل فـ الإرسال، حاول مرة أخرى.');
+        submitBtn.disabled = false;
+    }
 });
