@@ -88,3 +88,39 @@ button[type="submit"] {
     .hero h1 { font-size: 2.2rem; }
     .hero { height: 70vh; }
 }
+/* Animation Definition */
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px); /* كتطلع الفوق بـ 15 بيكسل */
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Applying the animation to the cards */
+.services .card {
+    animation: floating 4s ease-in-out infinite;
+    /* زدنا هاد الخاصية باش يبان الظل كيتغير شوية مع الحركة */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* باش ما يتحركوش كاملين دقة وحدة (كيعطي منظر طبيعي كثر) */
+.services .card:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.services .card:nth-child(3) {
+    animation-delay: 1s;
+}
+
+/* ميزة إضافية: فاش يحط الكليان الماوس فوق الكارط، الحركة كتحبس وكيكبر الحجم شوية */
+.services .card:hover {
+    animation-play-state: paused;
+    transform: scale(1.05);
+    border-top-color: var(--vibrant-orange);
+    cursor: pointer;
+}
