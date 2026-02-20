@@ -55,3 +55,17 @@ function updateContent() {
     document.getElementById('about-text').innerText = translations[currentLang]['about-text'];
     document.getElementById('hero-btn').innerText = translations[currentLang]['start'];
 }
+// --- هاد الكود حطو في آخر سطر في ملف script.js ---
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // هنا كنخليو الفورم تمشي لـ Formspree اللي غتصيفطها للـ Gmail
+    const submitBtn = document.getElementById('submit-btn');
+    
+    // هاد السطر كيبدل النص اللي وسط الزر باش الكليان يعرف أن الميساج كيتصيفط
+    submitBtn.innerText = currentLang === 'ar' ? 'جاري الإرسال...' : 'Envoi en cours...';
+    
+    // هاد السطر كينقص من وضوح الزر شوية باش يبان أنه "خادم"
+    submitBtn.style.opacity = '0.7';
+    
+    // ملاحظة: مورا أول إرسال، Formspree غتصيفط ليك Gmail باش تأكد (Activate) الحساب
+});
