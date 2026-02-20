@@ -19,6 +19,8 @@ const translations = {
         "s2-t": "صديق للصحة", "s2-d": "نستخدم مواد آمنة لمن يعانون من الربو أو الحساسية.",
         "s3-t": "كل الغرف", "s3-d": "من الصالون إلى المطبخ، نصمم كل ركن في منزلك.",
         "contact-title": "تواصل معنا", timer: "نرد خلال 24 ساعة", footer: "بكل حب من أجل بيوتكم"
+        // زيدها فـ Ar
+"follow-us": "تابعونا على إنستغرام:"
     },
     fr: {
         home: "Accueil", about: "À Propos", services: "Services", contact: "Contact",
@@ -32,6 +34,10 @@ const translations = {
         "s2-t": "Santé & Confort", "s2-d": "Matériaux sûrs pour votre santé.",
         "s3-t": "Toutes les pièces", "s3-d": "Nous concevons chaque recoin.",
         "contact-title": "Contactez-nous", timer: "Réponse sous 24h", footer: "Fait avec amour"
+
+
+// زيدها فـ Fr
+"follow-us": "Suivez-nous sur Instagram:"
     }
 };
 
