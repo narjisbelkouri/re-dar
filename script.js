@@ -1,11 +1,11 @@
-// 1. Cursor Tracker Logic
+// Cursor Tracker
 const dot = document.querySelector('.cursor-dot');
 document.addEventListener('mousemove', (e) => {
     dot.style.left = e.clientX + 'px';
     dot.style.top = e.clientY + 'px';
 });
 
-// 2. Translation Logic
+// Translation Data
 const translations = {
     ar: {
         home: "الرئيسية", about: "من نحن", services: "خدماتنا", contact: "اتصل بنا",
@@ -14,12 +14,11 @@ const translations = {
         coverage: "نصل إليكم أينما كنتم في المغرب",
         start: "ابدأ رحلتك معنا",
         "about-title": "من نحن؟",
-        "about-text": "في Re-Dar، نحن فريق من المنسقين المتمكنين. هدفنا تمكين الجميع من منزل مريح مهما كانت الميزانية. نرافقكم بالحرف ونحترم خصوصياتكم الصحية.",
+        "about-text": "في Re-Dar، نحن فريق من المنسقين، المهندسين، وخبراء الديكور. هدفنا تمكين الجميع من العيش في منزل مريح وراقي بذوقكم الخاص، وبأقل تكلفة ممكنة؛ نرافقكم بالحرف، ونحترم خصوصياتكم الصحية.",
         "s1-t": "ذوقك أولاً", "s1-d": "نتبع ذوقك الشخصي بدقة، وإذا كنت تائهاً، نقترح عليك الأنسب.",
         "s2-t": "صديق للصحة", "s2-d": "نستخدم مواد آمنة لمن يعانون من الربو أو الحساسية.",
         "s3-t": "كل الغرف", "s3-d": "من الصالون إلى المطبخ، نصمم كل ركن في منزلك.",
-        "contact-title": "تواصل معنا", timer: "نرد خلال 24 ساعة",
-        submit: "إرسال الرسالة", footer: "بكل حب من أجل بيوتكم"
+        "contact-title": "تواصل معنا", timer: "نرد خلال 24 ساعة", footer: "بكل حب من أجل بيوتكم"
     },
     fr: {
         home: "Accueil", about: "À Propos", services: "Services", contact: "Contact",
@@ -28,12 +27,11 @@ const translations = {
         coverage: "Nous intervenons partout au Maroc",
         start: "Commencez l'aventure",
         "about-title": "Qui sommes-nous ?",
-        "about-text": "Chez Re-Dar, nous sommes des coordinateurs experts. Notre but est d'offrir un foyer confortable à tous, quel que soit le budget. Nous vous suivons à la lettre.",
-        "s1-t": "Votre goût d'abord", "s1-d": "Nous suivons votre style avec précision ou nous vous conseillons.",
-        "s2-t": "Santé & Confort", "s2-d": "Matériaux sûrs pour les asthmatiques et allergiques.",
-        "s3-t": "Toutes les pièces", "s3-d": "Du salon à la cuisine, nous créons chaque recoin.",
-        "contact-title": "Contactez-nous", timer: "Réponse sous 24h",
-        submit: "Envoyer", footer: "Fait avec amour pour vos foyers"
+        "about-text": "Chez Re-Dar, nous sommes une équipe de coordinateurs, d'ingénieurs et d'experts en décoration. Notre objectif est de permettre à chacun de vivre dans une maison confortable et élégante selon vos propres goûts, au coût le plus bas possible ; nous vous accompagnons à la lettre et respectons vos particularités de santé.",
+        "s1-t": "Votre goût d'abord", "s1-d": "Nous suivons votre style avec précision.",
+        "s2-t": "Santé & Confort", "s2-d": "Matériaux sûrs pour votre santé.",
+        "s3-t": "Toutes les pièces", "s3-d": "Nous concevons chaque recoin.",
+        "contact-title": "Contactez-nous", timer: "Réponse sous 24h", footer: "Fait avec amour"
     }
 };
 
@@ -44,7 +42,6 @@ langBtn.addEventListener('click', () => {
     currentLang = currentLang === 'ar' ? 'fr' : 'ar';
     langBtn.innerText = currentLang === 'ar' ? 'Français' : 'العربية';
     document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-    document.documentElement.lang = currentLang;
     updateContent();
 });
 
@@ -53,19 +50,8 @@ function updateContent() {
         const key = el.getAttribute('data-key');
         el.innerText = translations[currentLang][key];
     });
-    // Update IDs specifically
     document.getElementById('hero-title').innerText = translations[currentLang]['hero-title'];
     document.getElementById('hero-desc').innerText = translations[currentLang]['hero-desc'];
     document.getElementById('about-text').innerText = translations[currentLang]['about-text'];
-    document.getElementById('submit-btn').innerText = translations[currentLang][currentLang === 'ar' ? 'submit' : 'submit'];
+    document.getElementById('hero-btn').innerText = translations[currentLang]['start'];
 }
-
-// 3. Form Logic (Mailto)
-document.getElementById('contactForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const msg = document.getElementById('message').value;
-    const mailtoLink = `mailto:votre-email@gmail.com?subject=Re-Dar Contact: ${name}&body=${msg}`;
-    window.location.href = mailtoLink;
-    alert(currentLang === 'ar' ? "سنتواصل معك قريباً!" : "Nous vous contacterons bientôt !");
-});
