@@ -118,3 +118,10 @@ button[type="submit"]:hover {
     background: var(--vibrant-yellow);
     color: var(--text-dark);
 }
+/* كيعطي ظل خفيف للفورم باش يبان مفروز على الخلفية */
+form#contactForm {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
